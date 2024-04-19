@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>filterable responsive lightbox gallery tutorial</title>
+
+    <!-- magnific-popup css cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="gallery.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+</head>
+<body>
+    <header class="header">
+
+        <a href="home.html" class="logo"><img src="images/centralzoo3.png" alt=""></a>
+
+        <nav class="navbar">
+            <a href="membership.html">Event</a>
+            <a href="gallery.html" target="_self">Gallery</a>
+            <a href="#gallery">Ticket</a>
+            <a href="">Membership</a>
+            <a href="#pricing">Donation</a>
+        </nav>
+
+        <div class="icons">
+            <div id="login-btn" class="fas fa-user"></div>
+            <div id="menu-btn" class="fas fa-bars"></div>
+        </div>
+
+        <!-- login form -->
+
+    <form action="" class="login-form">
+
+        <h3>login form</h3>
+        
+        <input type="email" placeholder="Enter your email" class="box">
+        <input type="password" placeholder="Enter your password" class="box">
+        <div class="remember">
+            <input type="checkbox" name="" id="remember-me">
+            <label for="remember-me">remember me</label>
+        </div>
+        <a href="#" class="btn">login</a>
+
+    </form>
+
+    </header>
+
+
+    <!-- end -->
+
+<div class="gallery">
+
+    <ul class="controls">
+        <li class="buttons active" data-filter="all">all</li>
+        <li class="buttons" data-filter="ice-cream">birds</li>
+        <li class="buttons" data-filter="chocolate">wild animal</li>
+        <li class="buttons" data-filter="cake">reptiles</li>
+        <li class="buttons" data-filter="juice">amphibians</li>
+        <li class="buttons" data-filter="sandwich">mammals</li>
+    </ul>
+
+    <div class="image-container">
+
+        <a href="images/animal24.webp" class="image ice-cream">
+            <img src="images/animal24.webp" alt="">
+        </a>
+        <a href="images/animal38.jpg" class="image ice-cream">
+            <img src="images/animal38.jpg" alt="">
+        </a>
+        <a href="images/animal45.jpg" class="image ice-cream">
+            <img src="images/animal45.jpg" alt="">
+        </a>
+
+        <a href="images/aniaml70.jpg" class="image chocolate">
+            <img src="images/aniaml70.jpg" alt="">
+        </a>
+        <a href="images/animal26.jpg" class="image chocolate">
+            <img src="images/animal26.jpg" alt="">
+        </a>
+
+        <a href="images/snack.jpeg" class="image cake">
+            <img src="images/snack.jpeg" alt="">
+        </a>
+        <a href="images/animal42.jpg" class="image cake">
+            <img src="images/animal42.jpg" alt="">
+        </a>
+        <a href="images/animal43.jpg" class="image cake">
+            <img src="images/animal43.jpg" alt="">
+        </a>
+        <a href="images/animal46.jpg" class="image cake">
+            <img src="images/animal46.jpg" alt="">
+        </a>
+        <a href="images/img9.jpeg" class="image cake">
+            <img src="images/img9.jpeg" alt="">
+        </a>
+
+        <a href="images/animal40.jpg" class="image juice">
+            <img src="images/animal40.jpg" alt="">
+        </a>
+        <a href="images/animal57.jpg" class="image juice">
+            <img src="images/animal57.jpg" alt="">
+        </a>
+        <a href="images/animal19.avif" class="image juice">
+            <img src="images/animal19.avif" alt="">
+        </a>
+
+        <a href="images/img0.jpg" class="image sandwich">
+            <img src="images/img0.jpg" alt="">
+        </a>
+        <a href="images/animal4.avif" class="image sandwich">
+            <img src="images/animal4.avif" alt="">
+        </a>
+        <a href="images/animal14.avif" class="image sandwich">
+            <img src="images/animal14.avif" alt="">
+        </a>
+        <a href="images/animal26.jpg" class="image sandwich">
+            <img src="images/animal26.jpg" alt="">
+        </a>
+
+    </div>
+
+</div>
+
+
+<!-- jquery cdn link  -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- magnific popup js cdn link  -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+
+<script>
+
+$(document).ready(function(){
+
+    $('.buttons').click(function(){
+
+        $(this).addClass('active').siblings().removeClass('active');
+
+        var filter = $(this).attr('data-filter')
+
+        if(filter == 'all'){
+            $('.image').show(400);
+        }else{
+            $('.image').not('.'+filter).hide(200);
+            $('.image').filter('.'+filter).show(400);
+        }
+
+    });
+
+    $('.gallery').magnificPopup({
+
+        delegate:'a',
+        type:'image',
+        gallery:{
+            enabled:true
+        }
+
+    });
+
+});
+
+</script>
+    
+</body>
+</html>
